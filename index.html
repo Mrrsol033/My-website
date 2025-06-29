@@ -43,15 +43,8 @@
             (n.className += t + "touch");
       })(window, document);
     </script>
-    <link
-      href="images/67ee4266971f51b65f57ca49_icon-32.png"
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
-    <link
-      href="images/67ee426925e6530594c7d5b4_icon-256.png"
-      rel="apple-touch-icon"
-    />
+    
+   
     <style>
       /*cards*/
       .hero-cards-wrapper,
@@ -116,6 +109,17 @@
           background-color: transparent;
         }
       }
+
+        #typewriter::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
     </style>
   </head>
   <body class="body">
@@ -254,23 +258,17 @@
             style="opacity: 0"
             class="h1"
           >
-            Hello, I'm Sol Jr
+            Hello, I'm Sol JR
           </h1>
-          <h2
-            data-w-id="a6ceab9e-20ad-3a5f-260a-956a695e68a4"
-            style="opacity: 0"
-            class="h3"
-          >
-            Web developer
-          </h3>
+          <h1 id="typewriter"  style="font-size: 2rem; font-weight: bold; color: white;"></h1>
           <div
             data-w-id="a6ceab9e-20ad-3a5f-260a-956a695e68a4"
             style="opacity: 0"
             class="hero-description"
           >
             A creative developer with a passion for blending elegant design with
-            smart functionality. I bring a keen eye for detail and a
-            love for problem-solving to every project.
+            smart functionality. I bring a keen eye for detail and a love for
+            problem-solving to every project.
           </div>
           <div
             data-w-id="02901cca-abf9-791d-419a-cf1032147553"
@@ -526,9 +524,7 @@
                       alt="Achievements"
                       class="design-card-awards-info-img"
                     />
-                    <div class="design-card-awards-subtitle">
-                       
-                    </div>
+                    <div class="design-card-awards-subtitle"></div>
                   </div>
                 </div>
                 <div class="design-card-userflow">
@@ -541,7 +537,7 @@
                   <div class="design-card-userflow-info">
                     <div class="design-card-userflow-title">Portfolio</div>
                     <div class="design-card-userflow-subtitle">
-                      C++, Web Design 
+                      C++, Web Design
                     </div>
                   </div>
                 </div>
@@ -1010,111 +1006,6 @@ d60a2a4105dcb49470f1fd_project-2.png"
       src="js/webflow.76da3267.b597ffa652e8fede.js"
       type="text/javascript"
     ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let lastScrollTop = 0;
-        const logoLink = document.querySelector(".logo-link");
-        const menuSocials = document.querySelector(".menu-socials");
-
-        window.addEventListener("scroll", function () {
-          let scrollTop =
-            window.pageYOffset || document.documentElement.scrollTop;
-
-          if (scrollTop <= 10) {
-            logoLink.style.transform = "translateY(0)";
-            menuSocials.style.transform = "translateY(0)";
-          } else if (scrollTop > lastScrollTop) {
-            logoLink.style.transform = "translateY(-200%)";
-            menuSocials.style.transform = "translateY(-200%)";
-          } else {
-            logoLink.style.transform = "translateY(0)";
-            menuSocials.style.transform = "translateY(0)";
-          }
-
-          lastScrollTop = scrollTop;
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const header = document.querySelector(".header");
-        const about = document.getElementById("about");
-        const portfolio = document.getElementById("portfolio");
-        const contact = document.getElementById("contact");
-        const offset = 50;
-
-        function checkSection() {
-          const scrollY = window.scrollY + offset;
-          const aboutTop = about.offsetTop;
-          const portfolioTop = portfolio.offsetTop;
-          const contactTop = contact.offsetTop;
-
-          if (
-            (scrollY >= aboutTop && scrollY < contactTop) ||
-            (scrollY >= portfolioTop && scrollY < contactTop)
-          ) {
-            header.classList.add("header-dark");
-          } else {
-            header.classList.remove("header-dark");
-          }
-        }
-
-        window.addEventListener("scroll", checkSection);
-        checkSection();
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const wrappers = document.querySelectorAll(
-          ".hero-cards-wrapper, .design-cards-wrapper, .cta-cards-wrapper"
-        );
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
-
-        wrappers.forEach((wrapper) => observer.observe(wrapper));
-
-        // parallax
-        const heroWrapper = document.querySelector(".hero-cards-wrapper");
-
-        if (heroWrapper) {
-          window.addEventListener("scroll", () => {
-            let scrollPercent =
-              window.scrollY /
-              (document.body.scrollHeight - window.innerHeight);
-            let parallaxOffset = Math.max(
-              -20,
-              Math.min(20, (scrollPercent - 0.05) * 400)
-            );
-
-            heroWrapper.style.transform = `translateY(${parallaxOffset}px)`;
-          });
-        }
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const formWrapper = document.querySelector(".w-form");
-        const form = document.querySelector("form");
-        const resetBtn = document.querySelector(".reset-form-btn");
-
-        if (formWrapper && form && resetBtn) {
-          resetBtn.addEventListener("click", function () {
-            form.reset();
-            formWrapper.querySelector(".w-form-done").style.display = "none";
-            formWrapper.querySelector(".w-form-fail").style.display = "none";
-            form.style.display = "flex";
-          });
-        }
-      });
-    </script>
+    <script src="./script/main.js"></script>
   </body>
 </html>
